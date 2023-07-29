@@ -1,0 +1,147 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Regየነዋሪዎች መታወቂያ ቅጽ {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+ <div class="content">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">የቀበሌ ነዋሪቆች የመታወቂያ ምዝገባ</h5>
+          </div>
+          <div class="card-body">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label for="id">የመታወቂያ ቁጥር:</label>
+                <input type="text" id="id" name="id" required>
+              </div>
+              <div class="form-group">
+                <label for="first_name">ስም:</label>
+                <input type="text" id="first_name" name="first_name" required>
+              </div>
+              <div class="form-group">
+                <label for="middle_name"> የአባት ስም:</label>
+                <input type="text" id="middle_name" name="middle_name">
+              </div>
+              <div class="form-group">
+                <label for="last_name"> የአያት ስም:</label>
+                <input type="text" id="last_name" name="last_name" required>
+              </div>
+              <div class="form-group">
+                <label for="first_name">የእናት ስም:</label>
+                <input type="text" id="first_name" name="first_name" required>
+              </div>
+              <div class="form-group">
+                <label for="middle_name"> የእናት አባት ስም:</label>
+                <input type="text" id="middle_name" name="middle_name">
+              </div>
+              <div class="form-group">
+                <label for="last_name">የእናት አያት ስም:</label>
+                <input type="text" id="last_name" name="last_name" required>
+              </div>
+                 <div class="form-group">
+                <label for="last_name">የትዉለድ ቀን እና ዘመን:</label>
+                <input type="text" id="last_name" name="last_name" required>
+              </div>
+                 <div class="form-group">
+                <label for="last_name">የትዉለድ ቦታ:</label>
+                <input type="text" id="last_name" name="last_name" required>
+              </div>
+               </div>
+                 <div class="form-group">
+                <label for="last_name">ስራ</label>
+                <input type="text" id="last_name" name="last_name" required>
+              </div>
+              <div class="form-group">
+                <label for="address">ሰፈር:</label>
+                <input type="number" id="address" name="address" required>
+              </div>
+              <div class="form-group">
+                <label for="house_number"> የቤት ቁጥር:</label>
+                <input type="number" id="house_number" name="house_number" required>
+              </div>
+              <div class="form-group">
+                <label for="job">የጋብቻ ሁኔታ:</label>
+                <input type="text" id="job" name="job">
+              </div>
+              <div class="form-group">
+                <label for="job">ዜግነት:</label>
+                <input type="text" id="job" name="job">
+              </div>
+              <div class="form-group">
+                <label for="id_card_given_date">መታዎቂያ የተሰጠበት ቀን:</label>
+                <input type="date" id="id_card_given_date" name="id_card_given_date">
+              </div>
+              <div class="form-group">
+                <label for="renewal_status"> የሚያዎጣው መታዎቂያ:</label>
+                <select id="renewal_status" name="renewal_status" onchange="addAdditionalOptions()">
+                  <option value="expired">እድሳት</option>
+                  <option value="active">አዲስ</option>
+                  
+                </select>        
+              </div>
+              <div class="form-group" id="additional_options"></div>
+              <div class="form-group">
+                <label for="warranty_name">የትያዥ ስም:</label>
+                <input type="text" id="warranty_name" name="warranty_name">
+              </div>
+              <div class="form-group">
+                <label for="warranty_name">የትያዥ ስልክ ቁጥር:</label>
+                <input type="text" id="warranty_name" name="warranty_name">
+              </div>
+              <button type="submit">አስቀምጥ</button>
+            </form>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-fill btn-primary">መዝግብ</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="card-body">
+            <p class="card-text">
+              <div class="author">
+                <div class="block block-one"></div>
+                <div class="block block-two"></div>
+                <div class="block block-three"></div>
+                <div class="block block-four"></div>
+                <a href="javascript:void(0)">
+                  <img class="avatar" src="{{ ASSETS_ROOT }}/img/ማማሩ.jpg" alt="...">
+                  <h5 class="title">ማማሩ ጌታሁን</h5>
+                </a>
+                <p class="description">
+                  የቀበሌ 03 አስተዳዳሪ
+                </p>
+              </div>
+            </p>
+            <div class="card-description">
+              ሀላፊነትን በትክክል መወጣት የሰዉልጅ ተግባር ነው 
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="button-container">
+              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+                <i class="fab fa-facebook"></i>
+              </button>
+              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+                <i class="fab fa-google-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
