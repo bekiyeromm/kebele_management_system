@@ -3,7 +3,64 @@
 {% block title %} Regየነዋሪዎች መታወቂያ ቅጽ {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+</style>
+{% endblock stylesheets %}
 
 {% block content %}
 
@@ -144,4 +201,43 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script>
+  function addAdditionalOptions() {
+    const selectElement = document.getElementById("renewal_status");
+    const additionalOptionsContainer = document.getElementById("additional_options");
+
+    // Remove existing additional options before adding new ones
+    additionalOptionsContainer.innerHTML = "";
+
+    if (selectElement.value === "active") {
+      const waysLabel = document.createElement("label");
+      waysLabel.innerHTML = "የሚያዎጣበት መንገድ:";
+      additionalOptionsContainer.appendChild(waysLabel);
+
+      const waysSelect = document.createElement("select");
+      waysSelect.id = "ways";
+      waysSelect.name = "ways";
+    //   const defaultt = createOptionElement("የሚያዎጡበትን መንገድ ይምረጡ ...");
+      const option1 = createOptionElement("በመሸኛ");
+      const option2 = createOptionElement("በትምህርት ማስረጃ");
+    //   waysSelect.appendChild(defaultt)
+      waysSelect.appendChild(option1);
+      waysSelect.appendChild(option2);
+      additionalOptionsContainer.appendChild(waysSelect);
+
+      const imageInput = document.createElement("input");
+        imageInput.type = "file";
+        imageInput.accept = "image/*";
+        additionalOptionsContainer.appendChild(imageInput);
+    }
+  }
+
+  function createOptionElement(text) {
+    const option = document.createElement("option");
+    option.text = text;
+    option.value = text.toLowerCase().replace(/\s+/g, "_"); // Convert text to lowercase and replace spaces with underscores for value attribute
+    return option;
+  }
+</script>
+{% endblock javascripts %}
